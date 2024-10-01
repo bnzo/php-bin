@@ -4,10 +4,14 @@ permissions:
   contents: write
   pull-requests: write
 
-on: push
+on:
+  schedule:
+    # This will run weekly on Sunday at 00:00 UTC.
+    - cron:  '0 0 * * 0'
+  workflow_dispatch:
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -16,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        version: ["8.1", "8.2", "8.3"]
+        version: ["8.3"]
         os: ["macos-13", "macos-latest", "windows-latest", "ubuntu-latest"]
 
     continue-on-error: true
