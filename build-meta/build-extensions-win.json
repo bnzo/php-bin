@@ -20,6 +20,8 @@
     "simplexml",
     "sockets",
     "tokenizer",
+    "xmlreader",
+    "xmlwriter",
     "bz2",
     "zip"
 ]
